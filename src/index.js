@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
-import App from './pages/translationPage';
 import Header from './component/header'
 import LoginPage from './pages/loginPage';
+import ProfilePage from './pages/profilePage';
+import TranslationPage from './pages/translationPage';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
     <Header />
-    <LoginPage />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/translate" element={<TranslationPage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
