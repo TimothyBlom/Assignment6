@@ -1,24 +1,28 @@
-import React, { Component }  from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import TranslatorLogo from '../translatorLogo.png'
-import GoButton from '../nextLogo.png'
+import React, { useState } from "react";
+import InputForm from "../components/InputForm";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 function TranslationPage() {
+  const [inputValue, setInputValue] = useState("");
+  const { loggedIn } = useSelector((state) => state.session);
+
   return (
-    <div className="TranslationPage">
+    <>
+      {!loggedIn && <Navigate to="/" replace />}
+      {loggedIn && (
+        <div className="TranslationPage">
+          <div className="background" />
 
-      <div className='background'/>
-
-      <div className='inputContainer'>
-            <div className='input'>
-              <input className='inputField' placeholder="Type text you would like to translate"></input>
-              <NavLink to='/translate'>
-                <img className='inputButton' src={GoButton} />
-              </NavLink>
-            </div>
+          <InputForm
+            placeholder="Type text you would like to translate"
+            alt="Translate"
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
         </div>
-
-    </div>
+      )}
+    </>
   );
 }
 

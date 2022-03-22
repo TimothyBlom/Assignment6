@@ -1,24 +1,29 @@
-import React, { Component }  from 'react';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 function ProfilePage() {
-    return (
-      <div className="ProfilePage">
-        
-        <div className='background'/>
+  const { loggedIn, username } = useSelector((state) => state.session);
 
-        <h1 className='lastSearched'>User name</h1>
+  return (
+    <>
+      {!loggedIn && <Navigate to="/" replace />}
+      {loggedIn && (
+        <div className="ProfilePage">
+          <div className="background" />
 
-        <div className='inputContainer'>
-            <div className='lastSearched'>
-                <h1>Last Searched Words</h1>
-                <p>#1</p>
+          <h1 className="lastSearched">{username}</h1>
+
+          <div className="inputContainer">
+            <div className="lastSearched">
+              <h1>Last Searched Words</h1>
+              <p>#1</p>
             </div>
+          </div>
         </div>
+      )}
+    </>
+  );
+}
 
-        <button className='logOutButton'>Log out</button>
-
-      </div>
-    );
-  }
-  
-  export default ProfilePage;
+export default ProfilePage;

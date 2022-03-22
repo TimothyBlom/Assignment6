@@ -1,25 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './style.css';
-import Header from './component/header'
-import LoginPage from './pages/loginPage';
-import ProfilePage from './pages/profilePage';
-import TranslationPage from './pages/translationPage';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./style.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store";
+import { sessionInitAction } from "./store/actions/sessionActions";
+import reportWebVitals from "./reportWebVitals";
+
+store.dispatch(sessionInitAction());
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <Header />
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/translate" element={<TranslationPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
