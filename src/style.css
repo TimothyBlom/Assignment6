@@ -143,5 +143,30 @@ code {
 }
 
 .logOutButton {
-  
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  border: solid 5px black(255, 174, 0);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
+.logOutButton:hover {
+  filter: drop-shadow(0px 0px 5px rgb(0, 89, 255));
+  cursor: pointer;
+}
+
+.bottom {
+  border-bottom: solid 20px rgb(113, 159, 211);
+  min-height: 400px;
+}
+
+.profileName {
+  text-align: center;
 }
