@@ -29,4 +29,22 @@ export const AuthAPI = {
       return response.json();
     });
   },
+  updateTranslations(user) {
+    return fetch(`${API_URL}/translations/${user.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-Key": API_KEY,
+      },
+      body: JSON.stringify({
+        translations: user.translations,
+      }),
+    }).then(async (response) => {
+      if (!response.ok) {
+        const { error = "An unknown error occurred" } = await response.json();
+        throw new Error(error);
+      }
+      return response.json();
+    });
+  },
 };
