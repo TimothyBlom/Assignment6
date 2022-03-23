@@ -1,5 +1,7 @@
 import React, { useState }  from 'react';
-import TranslatorLogo from '../images/translatorLogo.png'
+import InputForm from "../components/InputForm";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import GoButton from '../images/nextLogo.png'
 import A from '../images/a.png'
 import B from '../images/b.png'
@@ -31,6 +33,8 @@ import questionMart from '../images/questionMark.png'
 
 function TranslationPage() {
   const [word, setWord] = useState([])
+  const [inputValue, setInputValue] = useState("");
+  const { loggedIn } = useSelector((state) => state.session);
 
   let inputWord;
   let inputSplit;
@@ -38,6 +42,7 @@ function TranslationPage() {
   const onChange = e => {
     inputWord = e.target.value;
     inputSplit = inputWord.split('')
+    console.log(inputSplit)
   }
 
   return (
@@ -115,6 +120,18 @@ function TranslationPage() {
           })}
 
         </div>
+
+        {!loggedIn && <Navigate to="/" replace />}
+        {loggedIn && (
+
+          <InputForm
+            placeholder="Type text you would like to translate"
+            alt="Translate"
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
+
+        )}
 
     </div>
   );

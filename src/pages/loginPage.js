@@ -1,32 +1,48 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import TranslatorLogo from '../images/translatorLogo.png'
-import GoButton from '../images/nextLogo.png'
-import Input from '../component/input'
+import React, { useState } from "react";
+import TranslatorLogo from "../images/translatorLogo.png";
+import InputForm from "../components/InputForm";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { loginAttemptAction } from "../store/actions/loginActions";
 
 function LoginPage() {
-    return (
-      <div className="loginPage">
+  const [inputValue, setInputValue] = useState("");
+  const dispatch = useDispatch();
+  const { loggedIn } = useSelector((state) => state.session);
 
-        <div className='loginPageContent'>
-            <img src={TranslatorLogo} className="loginLogo" />
-            <div className='loginPageText'>
-                <h1>Lost in translation</h1>
-                <h3>Log in and get started</h3>
-            </div>
-        </div>
+  const onLoginSubmit = (e) => {
+    e.preventDefault();
+    if (!inputValue.trim()) {
+      return;
+    }
 
-        <div className='inputContainer'>
-            <div className='input'>
-              <input className='inputField' placeholder="Type your name here"></input>
-              <NavLink to='/translate'>
-                <img className='inputButton' src={GoButton} />
-              </NavLink>
+    dispatch(loginAttemptAction(inputValue));
+  };
+
+  return (
+    <>
+      {loggedIn && <Navigate to="/translate" replace />}
+      {!loggedIn && (
+        <div className="loginPage">
+          <div className="loginPageContent">
+            <img src={TranslatorLogo} className="loginLogo" alt="" />
+            <div className="loginPageText">
+              <h1>Lost in translation</h1>
+              <h2>Log in and get started</h2>
             </div>
+          </div>
+
+          <InputForm
+            placeholder="Type your name"
+            alt="Login"
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            onSubmit={onLoginSubmit}
+          />
         </div>
-      
-      </div>
-    );
-  }
-  
-  export default LoginPage;
+      )}
+    </>
+  );
+}
+
+export default LoginPage;
