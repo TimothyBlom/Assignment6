@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import TranslatorLogo from '../translatorLogo.png'
-import GoButton from '../nextLogo.png'
+import TranslatorLogo from '../images/translatorLogo.png'
+import GoButton from '../images/nextLogo.png'
 import Input from '../component/input'
 
 function LoginPage() {
@@ -12,7 +12,7 @@ function LoginPage() {
             <img src={TranslatorLogo} className="loginLogo" />
             <div className='loginPageText'>
                 <h1>Lost in translation</h1>
-                <h2>Log in and get started</h2>
+                <h3>Log in and get started</h3>
             </div>
         </div>
 

@@ -151,7 +151,6 @@ code {
   font-size: 30px;
   font-weight: bolder;
   border: solid 5px black(255, 174, 0);
-  margin-top: 100px;
   margin-bottom: 100px;
   margin-left: 50%;
   transform: translate(-50%);
@@ -165,6 +164,7 @@ code {
 .bottom {
   border-bottom: solid 20px rgb(113, 159, 211);
   min-height: 400px;
+  margin-bottom: 100px;
 }
 
 .profileName {

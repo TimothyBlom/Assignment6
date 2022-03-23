@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import TranslatorLogo from '../translatorLogo.png'
-import UserLogo from '../userLogo.png'
+import TranslatorLogo from '../images/translatorLogo.png'
+import UserLogo from '../images/userLogo.png'
 
 function Header() {
     return (

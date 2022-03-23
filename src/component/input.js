@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import GoButton from '../nextLogo.png'
+import GoButton from '../images/nextLogo.png'
 
 function input(props) {
     return (
