@@ -15,14 +15,16 @@ function ProfilePage() {
           <div className="background" />
 
           <div className='inputContainer'>
-            <h1 className='profileName'>{username}</h1>
+            <h1 className='profileText'>{username}</h1>
           </div>
 
           <div className="inputContainer bottom">
-            <div className="lastSearched">
+            <div className="profileText">
               <h1>Last Searched Words</h1>
               
               {/* Last searched words here */}
+
+              <button className='deleteButton'>Delete search hirtory</button>
 
             </div>
           </div>

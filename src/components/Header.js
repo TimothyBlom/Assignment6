@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { sessionLogoutAction } from "../store/actions/sessionActions";
 import TranslatorLogo from "../images/translatorLogo.png";
 import UserLogo from "../images/userLogo.png";
+import '../styles/header.css'
 
 function Header() {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ function Header() {
       </Link>
 
       {loggedIn && (
-        <>
+        <div className="headerUserContainer">
           <Link to="/profile" className="headerUserAccount">
             <p className="accountName">{username}</p>
             <img src={UserLogo} className="accountLogo" alt="" />
@@ -33,7 +34,7 @@ function Header() {
           <button className="logOutButton" onClick={onLogoutClick}>
             Log out
           </button>
-        </>
+        </div>
       )}
     </header>
   );
