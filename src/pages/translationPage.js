@@ -3,13 +3,13 @@ import InputForm from "../components/InputForm";
 import Translation from "../components/Translation";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { sessionAddTranslationAttemptAction } from "../store/actions/sessionActions";
+import { sessionUpdateTranslationsAttemptAction } from "../store/actions/sessionActions";
 
 function TranslationPage() {
   const [inputValue, setInputValue] = useState("");
   const [translation, setTranslation] = useState([]);
   const dispatch = useDispatch();
-  const { loggedIn } = useSelector((state) => state.session);
+  const { id, loggedIn, translations } = useSelector((state) => state.session);
 
   const onTranslationSubmit = (e) => {
     e.preventDefault();
@@ -31,9 +31,8 @@ function TranslationPage() {
       );
     setTranslation(translation);
 
-    const { id, translations } = JSON.parse(localStorage.getItem("user"));
     const updatedProfile = { id, translations: [inputValue, ...translations] };
-    dispatch(sessionAddTranslationAttemptAction(updatedProfile));
+    dispatch(sessionUpdateTranslationsAttemptAction(updatedProfile));
   };
 
   return (
