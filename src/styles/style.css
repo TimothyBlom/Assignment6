@@ -92,6 +92,7 @@ code {
 .deleteButton {
   float: left;
   margin: 50px;
+  /* margin-top: 170px; */
   height: 50px;
   border-radius: 20px;
   background-color: black;
@@ -104,4 +105,19 @@ code {
 .deleteButton:hover {
   filter: drop-shadow(0px 0px 5px rgb(0, 89, 255));
   cursor: pointer;
+}
+
+.profileTranslatedHeader {
+  border-bottom: solid gray;
+  padding-bottom: 50px;
+}
+
+.profileTranslatedContainer {
+  min-height: 100px;
+}
+
+.profileTranslated {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 50px
 }

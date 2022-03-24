@@ -1,4 +1,5 @@
-### For this assignment, as we understand it, we need to make a translation app that translate text to emoji's of hand signals. You can also log in and view and delete your 10 last translation requests.
+# Assignment explained
+For this assignment, as we understand it, we need to make a translation app that translate text to emoji's of hand signals. You can also log in and view and delete your 10 last translation requests.
 
 # How to use
 - You start in the login page, type in your name and press the go button.
@@ -10,14 +11,14 @@
 - Click on the log out button to log out and return to the log in page.
 
 ## We uploaded this on Heroku
-To view this app on heroku, click on the link below
+To view this app on heroku, click [here](https://assignment2-sign-language.herokuapp.com)
 
-(link)
+## We have an component tree
 
-## We made an component tree
+![Component tree!](Sign-Language-Translator-Component-Tree.jpg)
 
-(image)
+## Made by
+Wessel Konstantinov & Timothy Blom
 
-# Made by
-Wessel Konstantinov
-Timothy Blom
+## Made with
+Javascript, React, Redux

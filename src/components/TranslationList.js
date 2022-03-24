@@ -4,9 +4,9 @@ import TranslationListItem from "./TranslationListItem";
 function TranslationList({ translations }) {
   return (
     <div className="profileText">
-      <h1>Last Translations</h1>
+      <h1 className="profileTranslatedHeader">Last Translations</h1>
 
-      <ol>
+      <ol className="profileTranslatedContainer">
         {translations.map((translation, index) => (
           <TranslationListItem key={index} translation={translation} />
         ))}
