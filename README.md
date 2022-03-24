@@ -1,4 +1,4 @@
-# For this assignment, as we understand it, we need to make a translation app that translate text to emoji's of hand signals. You can also log in and view and delete your 10 last translation requests.
+### For this assignment, as we understand it, we need to make a translation app that translate text to emoji's of hand signals. You can also log in and view and delete your 10 last translation requests.
 
 # How to use
 - You start in the login page, type in your name and press the go button.
