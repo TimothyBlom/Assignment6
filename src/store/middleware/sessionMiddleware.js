@@ -4,12 +4,12 @@ import {
   ACTION_SESSION_INIT,
   ACTION_SESSION_LOGOUT,
   ACTION_SESSION_SET,
-  ACTION_SESSION_ADD_TRANSLATION_ATTEMPT,
-  ACTION_SESSION_ADD_TRANSLATION_SUCCESS,
+  ACTION_SESSION_UPDATE_TRANSLATIONS_ATTEMPT,
+  ACTION_SESSION_UPDATE_TRANSLATIONS_SUCCESS,
   sessionClearAction,
   sessionSetAction,
-  sessionAddTranslationSuccessAction,
-  sessionAddTranslationErrorAction,
+  sessionUpdateTranslationsSuccessAction,
+  sessionUpdateTranslationsErrorAction,
 } from "../actions/sessionActions";
 
 export const sessionMiddleware = ({ dispatch }) => (next) => (action) => {
@@ -36,15 +36,17 @@ export const sessionMiddleware = ({ dispatch }) => (next) => (action) => {
     dispatch(sessionClearAction());
   }
 
-  if (action.type === ACTION_SESSION_ADD_TRANSLATION_ATTEMPT) {
+  if (action.type === ACTION_SESSION_UPDATE_TRANSLATIONS_ATTEMPT) {
     AuthAPI.updateTranslations(action.payload)
-      .then((profile) => dispatch(sessionAddTranslationSuccessAction(profile)))
+      .then((profile) =>
+        dispatch(sessionUpdateTranslationsSuccessAction(profile))
+      )
       .catch((error) =>
-        dispatch(sessionAddTranslationErrorAction(error.message))
+        dispatch(sessionUpdateTranslationsErrorAction(error.message))
       );
   }
 
-  if (action.type === ACTION_SESSION_ADD_TRANSLATION_SUCCESS) {
+  if (action.type === ACTION_SESSION_UPDATE_TRANSLATIONS_SUCCESS) {
     dispatch(sessionSetAction(action.payload));
   }
 };

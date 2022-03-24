@@ -2,9 +2,9 @@ import {
   ACTION_SESSION_CLEAR,
   ACTION_SESSION_LOGOUT,
   ACTION_SESSION_SET,
-  ACTION_SESSION_ADD_TRANSLATION_ATTEMPT,
-  ACTION_SESSION_ADD_TRANSLATION_SUCCESS,
-  ACTION_SESSION_ADD_TRANSLATION_ERROR,
+  ACTION_SESSION_UPDATE_TRANSLATIONS_ATTEMPT,
+  ACTION_SESSION_UPDATE_TRANSLATIONS_SUCCESS,
+  ACTION_SESSION_UPDATE_TRANSLATIONS_ERROR,
 } from "../actions/sessionActions";
 
 const initialState = {
@@ -32,17 +32,17 @@ export const sessionReducer = (state = { ...initialState }, action) => {
         ...state,
         loggedIn: false,
       };
-    case ACTION_SESSION_ADD_TRANSLATION_ATTEMPT:
+    case ACTION_SESSION_UPDATE_TRANSLATIONS_ATTEMPT:
       return {
         ...state,
         addTranslationAttempting: true,
         addTranslationError: "",
       };
-    case ACTION_SESSION_ADD_TRANSLATION_SUCCESS:
+    case ACTION_SESSION_UPDATE_TRANSLATIONS_SUCCESS:
       return {
         ...state,
       };
-    case ACTION_SESSION_ADD_TRANSLATION_ERROR:
+    case ACTION_SESSION_UPDATE_TRANSLATIONS_ERROR:
       return {
         ...state,
         addTranslationAttempting: false,
